@@ -3,15 +3,15 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function RotatingPolyhedron() {
+export default function RotatingPolyhedron({w, h}) {
   const containerRef = useRef(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     // Scene setup
-    const width = 1400; // Change to your desired width
-    const height = 600; // Change to your desired height
+    const width = w; // Change to your desired width
+    const height = h; // Change to your desired height
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -106,5 +106,5 @@ export default function RotatingPolyhedron() {
     };
   }, []);
 
-  return <div ref={containerRef} className="w-90% h-full" />;
+  return <div ref={containerRef}/>;
 }
