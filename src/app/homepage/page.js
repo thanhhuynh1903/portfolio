@@ -1,11 +1,12 @@
+"use client";
 import React from "react";
 import ButtonClick from "@/components/ButtonClick";
 import RotatingPolyhedron from "@/components/RotatingPolyhedron";
 export default function page() {
   return (
     <div className="container relative flex justify-center  align-center items-center h-[100vh] bg-black">
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 right-50">
-        <RotatingPolyhedron w={1500} h={500} />
+       <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40">
+        <RotatingPolyhedron w={900} h={300} />
       </div>
       <div className="w-9/12 relative z-10">
         <div className="block">

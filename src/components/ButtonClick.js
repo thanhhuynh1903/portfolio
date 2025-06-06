@@ -3,7 +3,7 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 export default function ButtonClick() {
   return (
     <div className="flex gap-5">
-      <div className="flex bg-orange-500 p-2 rounded-full tracking-wider">
+      <div className="flex bg-[#ff9800] p-2 rounded-full tracking-wider">
         <div
           className="flex justify-between text-center cursor-pointer"
           style={{ alignItems: "center" }}

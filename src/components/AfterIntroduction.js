@@ -92,7 +92,7 @@ export default function AfterIntroduction({ onFinish }) {
 
       <div
         ref={orangeBoxRef}
-        className="orange-box absolute z-10 h-[50px] w-[240px] bg-orange-500 shadow-lg"
+        className="orange-box absolute z-10 h-[50px] w-[240px] bg-[#ff9800] shadow-lg"
         style={{ width: "240px" }}
       ></div>
     </div>

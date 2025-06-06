@@ -3,108 +3,145 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function RotatingPolyhedron({w, h}) {
+const RotatingPolyhedron = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    let scene,
+      camera,
+      renderer,
+      mouseX = 0,
+      mouseY = 0,
+      windowHalfX,
+      windowHalfY,
+      rotationSpeed = 0.0005,
+      clock; // Thêm đồng hồ để điều khiển hiệu ứng nổi
 
-    // Scene setup
-    const width = w; // Change to your desired width
-    const height = h; // Change to your desired height
+    const init = () => {
+      if (!containerRef.current) return;
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+      const containerWidth = containerRef.current.clientWidth;
+      const containerHeight = containerRef.current.clientHeight;
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-    });
-    renderer.setSize(width, height);
-    renderer.setClearColor(0x000000, 1);
-    containerRef.current.appendChild(renderer.domElement);
+      windowHalfX = containerWidth / 2;
+      windowHalfY = containerHeight / 2;
 
-    // Create a custom polyhedron
-    const geometry = new THREE.IcosahedronGeometry(5, 0);
+      scene = new THREE.Scene();
 
-    // Create wireframe material
-    const material = new THREE.LineBasicMaterial({
-      color: 0x333333,
-      transparent: true,
-      opacity: 0.6,
-    });
+      camera = new THREE.PerspectiveCamera(
+        45,
+        containerWidth / containerHeight,
+        1,
+        1000
+      );
 
-    // Convert to wireframe
-    const wireframe = new THREE.WireframeGeometry(geometry);
-    const lines = new THREE.LineSegments(wireframe, material);
-    scene.add(lines);
+      camera.position.z = 30;
 
-    // Add a second, slightly offset polyhedron for complexity
-    const geometry2 = new THREE.OctahedronGeometry(7, 0);
-    const wireframe2 = new THREE.WireframeGeometry(geometry2);
-    const lines2 = new THREE.LineSegments(wireframe2, material);
-    lines2.rotation.x = Math.PI / 4;
-    scene.add(lines2);
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(containerWidth, containerHeight);
 
-    // Position camera
-    camera.position.z = 15;
+      containerRef.current.appendChild(renderer.domElement);
 
-    // Animation variables
-    const rotationSpeed = 0.0005;
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetRotationX = 0;
-    let targetRotationY = 0;
+      document.addEventListener("mousemove", onDocumentMouseMove, false);
 
-    // Handle mouse movement
-    const handleMouseMove = (event) => {
-      mouseX = (event.clientX - window.innerWidth / 2) / 100;
-      mouseY = (event.clientY - window.innerHeight / 2) / 100;
+      // Tạo vật liệu chung
+      const material = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+      // Tạo các khối đa diện với vị trí và thuộc tính nổi khác nhau
+      const polyhedrons = [];
+
+      // Lưu trữ các thông tin chuyển động riêng
+      const polyhedronProps = [
+        { size: 14, pos: [20, 10, 0], floatSpeed: 0.5, floatAmplitude: 0.5 }, // Khối lớn
+        { size: 7, pos: [-12, 12, 0], floatSpeed: 0.7, floatAmplitude: 0.3 }, // Khối trung
+        { size: 3, pos: [2, -10, 0], floatSpeed: 1.0, floatAmplitude: 0.7 }   // Khối nhỏ
+      ];
+
+      polyhedronProps.forEach((props) => {
+        const geometry = new THREE.IcosahedronGeometry(props.size, 1);
+        const wireframe = new THREE.WireframeGeometry(geometry);
+        const lines = new THREE.LineSegments(wireframe, material);
+        
+        // Thiết lập vị trí ban đầu
+        lines.position.set(...props.pos);
+        
+        // Lưu trữ thuộc tính nổi và vị trí gốc
+        lines.userData = {
+          originalY: props.pos[1],
+          floatSpeed: props.floatSpeed,
+          floatAmplitude: props.floatAmplitude
+        };
+        
+        scene.add(lines);
+        polyhedrons.push(lines);
+      });
+
+      // Khởi tạo đồng hồ
+      clock = new THREE.Clock();
+
+      // Vòng lặp animation
+      const animate = () => {
+        requestAnimationFrame(animate);
+        const delta = clock.getDelta();
+        const elapsedTime = clock.getElapsedTime();
+
+        // Cập nhật chuyển động cho mỗi khối
+        polyhedrons.forEach((polyhedron) => {
+          // Xoay cơ bản
+          polyhedron.rotation.x += rotationSpeed;
+          polyhedron.rotation.y += rotationSpeed;
+          polyhedron.rotation.z += rotationSpeed * 0.5;
+
+          // Ảnh hưởng của chuột (giảm tốc độ)
+          polyhedron.rotation.x += mouseY * 0.0000001;
+          polyhedron.rotation.y += mouseX * 0.0000001;
+
+          // Hiệu ứng nổi lên/xuống
+          const { originalY, floatSpeed, floatAmplitude } = polyhedron.userData;
+          polyhedron.position.y = originalY + Math.sin(elapsedTime * floatSpeed) * floatAmplitude;
+        });
+
+        renderer.render(scene, camera);
+      };
+
+      animate();
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const onDocumentMouseMove = (event) => {
+      mouseX = event.clientX - windowHalfX;
+      mouseY = event.clientY - windowHalfY;
+    };
 
-    // Handle window resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+    const onWindowResize = () => {
+      if (!containerRef.current) return;
+
+      const containerWidth = containerRef.current.clientWidth;
+      const containerHeight = containerRef.current.clientHeight;
+
+      windowHalfX = containerWidth / 2;
+      windowHalfY = containerHeight / 2;
+
+      camera.aspect = containerWidth / containerHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      renderer.setSize(containerWidth, containerHeight);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", onWindowResize, false);
 
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
+    init();
 
-      // Smooth rotation
-      targetRotationX += rotationSpeed;
-      targetRotationY += rotationSpeed * 0.5;
-
-      // Add subtle mouse influence
-      lines.rotation.x +=
-        (targetRotationX + mouseY * 0.05 - lines.rotation.x) * 0.02;
-      lines.rotation.y +=
-        (targetRotationY + mouseX * 0.05 - lines.rotation.y) * 0.02;
-
-      lines2.rotation.x +=
-        (targetRotationX * 0.7 - mouseY * 0.03 - lines2.rotation.x) * 0.01;
-      lines2.rotation.y +=
-        (targetRotationY * 0.7 - mouseX * 0.03 - lines2.rotation.y) * 0.01;
-
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Cleanup
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
-      containerRef.current?.removeChild(renderer.domElement);
+      window.removeEventListener("resize", onWindowResize);
+      document.removeEventListener("mousemove", onDocumentMouseMove);
+      if (containerRef.current && renderer) {
+        containerRef.current.removeChild(renderer.domElement);
+      }
     };
   }, []);
 
-  return <div ref={containerRef}/>;
-}
+  return <div ref={containerRef} style={{ width: "99%", height: "100%" }} />;
+};
+
+export default RotatingPolyhedron;
