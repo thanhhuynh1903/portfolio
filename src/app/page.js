@@ -1,33 +1,22 @@
 "use client";
+import React from 'react';
+import { useState } from 'react';
+import Introduction from "@/components/Introduction";
+import AfterIntroduction from "@/components/AfterIntroduction";
 
-import RotatingPolyhedron from "@/components/RotatingPolyhedron";
-import ObjectSVG from "@/components/ObjectSVG";
-import Link from "next/link";
 export default function Home() {
+  const [showAfter, setShowAfter] = useState(false);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-black">
-      <div className="relative">
-        <RotatingPolyhedron />
-        <div className="absolute top-6 right-6 z-10">
-          <button className="flex flex-col items-center justify-center space-y-1.5">
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </button>
-        </div>
-      </div>
-      <Link href={"/landing"} className="absolute bottom-6 text-white text-sm">
-        landing
-      </Link>
-      {/* <Link href={"/"} className="absolute bottom-6 left-6 text-white text-sm">
-        Home
-      </Link>
-      <Link href={"/contact"} className="absolute bottom-6 right-6 text-white text-sm">
-        Contact
-      </Link>
-      <Link href={"/"} className="absolute top-6 left-6 text-white text-sm">
-        <span className="text-gray-400">Back to Home</span>
-      </Link> */}
+    <main>
+     {!showAfter && (
+        <Introduction
+          onFinish={() => {
+            setTimeout(() => setShowAfter(true), 600);
+          }}
+        />
+      )}
+      {showAfter && <AfterIntroduction />}
     </main>
   );
 }
