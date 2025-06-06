@@ -28,7 +28,7 @@ export default function Introduction({ onFinish }) {
             y: -30,
             stagger: 0.1,
             ease: "back.in",
-              onComplete: () => {
+            onComplete: () => {
               if (onFinish) onFinish();
             },
           });
@@ -55,7 +55,7 @@ export default function Introduction({ onFinish }) {
           ) : (
             <span
               key={i}
-              className="textmoving inline-block opacity-0 tracking-wide font-light"
+              className="textmoving  inline-block opacity-0 tracking-wide font-thin"
             >
               {word}
               <span>&nbsp;</span>

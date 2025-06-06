@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 
 gsap.registerPlugin(useGSAP);
 
-export default function AfterIntroduction() {
+export default function AfterIntroduction({ onFinish }) {
   const container = useRef(null);
   const orangeBoxRef = useRef(null);
 
@@ -71,6 +71,9 @@ export default function AfterIntroduction() {
           y: -10,
           stagger: 0.1,
           ease: "back.in",
+          onComplete: () => {
+            if (onFinish) onFinish();
+          },
         });
     },
     { scope: container }
