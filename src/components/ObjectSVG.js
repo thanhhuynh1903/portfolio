@@ -10,8 +10,8 @@ export default function ObjectSVG() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-8">
-      <div className="relative">
+    <div className="flex items-center justify-center min-h-screen px-8">
+      <div className="relative left-[110px]">
         <svg
           width="250"
           viewBox="0 0 300 1404"
