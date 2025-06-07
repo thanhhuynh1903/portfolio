@@ -53,8 +53,9 @@ const RotatingPolyhedron2 = () => {
 
       // Lưu trữ các thông tin chuyển động riêng
       const polyhedronProps = [
-        { size: 6, pos: [20, 0, 0], floatSpeed: 0.5, floatAmplitude: 0.5 }, // Khối lớn
-        { size: 3, pos: [-15, 10, 0], floatSpeed: 0.7, floatAmplitude: 0.3 }, // Khối trung
+        { size: 5.5, pos: [20, 4, 0], floatSpeed: 0.5, floatAmplitude: 0.5 }, // Khối lớn
+        { size: 3, pos: [-15, 9, 0], floatSpeed: 0.7, floatAmplitude: 0.3 }, // Khối trung
+        // { size: 2, pos: [-20, -10, 0], floatSpeed: 0.7, floatAmplitude: 0.3 }, // Khối trung
       ];
 
       polyhedronProps.forEach((props) => {

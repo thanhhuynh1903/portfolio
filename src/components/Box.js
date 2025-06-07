@@ -15,9 +15,11 @@ export default function Box() {
       boxes.forEach((box) => {
         const text = box.querySelector(".text");
         const border = box.querySelector(".animated-border");
+        const icons = box.querySelector(".icon");
 
         gsap.set(text, { opacity: 0, y: 20 });
         gsap.set(border, { width: 0 });
+        gsap.set(icons, { opacity: 1 });
         box.addEventListener("mouseenter", () => {
           gsap.to(text, {
             opacity: 1,
@@ -31,6 +33,13 @@ export default function Box() {
             duration: 0.5,
             ease: "power3.out",
           });
+          gsap.to(icons, {
+            scale: 2.5,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            color: "#FF9800",
+          });
         });
         box.addEventListener("mouseleave", () => {
           gsap.to(text, {
@@ -43,6 +52,13 @@ export default function Box() {
             width: 0,
             duration: 0.5,
             ease: "power3.in",
+          });
+           gsap.to(icons, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            color: "#171717"
           });
         });
       });
@@ -96,7 +112,7 @@ export default function Box() {
                   {item.name}
                 </h1>
                 <p className="text opacity-0">{item.desc}</p>
-                <ArrowCircleRightIcon />
+                <ArrowCircleRightIcon className="icon" />
               </div>
             </div>
           </div>
