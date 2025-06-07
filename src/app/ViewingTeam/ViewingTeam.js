@@ -173,7 +173,7 @@ export default function ViewingTeam() {
                       className="hoverappear absolute inset-0 flex flex-col justify-end items-center z-10"
                       style={{
                         background:
-                          "linear-gradient(to top, rgba(0,0,0,0.85) 70%, transparent 100%)",
+                          "linear-gradient(to top, #00000080 70%, transparent 100%)",
                       }}
                     >
                       <div className="w-full bg-gradient-to-t from-black/80 to-transparent pt-16 pb-4 flex flex-col items-center">
@@ -190,7 +190,7 @@ export default function ViewingTeam() {
                         </div>
                       </div>
                       <div
-                        className="animated-border h-1.5 bg-[#ff9800] mt-2 w-full"
+                        className="animated-border h-1.5 bg-[#ff9800] w-full"
                         style={{ transform: "scaleX(0)" }}
                       />
                     </div>
@@ -218,7 +218,7 @@ export default function ViewingTeam() {
                       className="hoverappear absolute inset-0 flex flex-col justify-end items-center z-10"
                       style={{
                         background:
-                          "linear-gradient(to top, rgba(0,0,0,0.85) 70%, transparent 100%)",
+                          "linear-gradient(to top, #00000080 70%, transparent 100%)",
                       }}
                     >
                       <div className="w-full bg-gradient-to-t from-black/80 to-transparent pt-16 pb-4 flex flex-col items-center">
@@ -235,7 +235,7 @@ export default function ViewingTeam() {
                         </div>
                       </div>
                       <div
-                        className="animated-border h-1.5 bg-[#ff9800] mt-2 w-full"
+                        className="animated-border h-1.5 bg-[#ff9800] w-full"
                         style={{ transform: "scaleX(0)" }}
                       />
                     </div>
