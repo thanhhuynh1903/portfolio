@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { borderColor, borderTop } from "@mui/system";
+
 gsap.registerPlugin(useGSAP);
 
 export default function Box() {
