@@ -64,6 +64,7 @@ export default function HomePage() {
       </div>
       <Aboutme />
       <Project/>
+      <Aboutme />
     </div>
   );
 }

@@ -57,13 +57,14 @@ export default function page() {
               </p>
             </div>
             <div>
-              <ButtonClick hide={false}/>
+              <ButtonClick hide={false} />
             </div>
           </div>
         </div>
       </div>
       <Aboutme />
-      <Project/>
+      <Project />
+      <Aboutme />
     </div>
   );
 }
