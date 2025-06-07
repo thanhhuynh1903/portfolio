@@ -1,6 +1,6 @@
 import React from "react";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-export default function ButtonClick() {
+export default function ButtonClick({hide}) {
   return (
     <div className="flex gap-5">
       <div className="flex bg-[#ff9800] p-2 rounded-full tracking-wider">
@@ -16,6 +16,7 @@ export default function ButtonClick() {
           </div>
         </div>
       </div>
+      {!hide && (
       <div className="flex p-2 tracking-wider">
         <div
           className="flex justify-between text-center cursor-pointer"
@@ -28,7 +29,8 @@ export default function ButtonClick() {
             <ArrowCircleRightIcon sx={{ fontSize: 32, color: "#fff" }} />
           </div>
         </div>
-      </div>
+      </div>)
+}
     </div>
   );
 }

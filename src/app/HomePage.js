@@ -57,7 +57,7 @@ export default function HomePage() {
               </p>
             </div>
             <div>
-              <ButtonClick />
+              <ButtonClick hide={false}/>
             </div>
           </div>
         </div>

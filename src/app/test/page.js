@@ -57,7 +57,7 @@ export default function page() {
               </p>
             </div>
             <div>
-              <ButtonClick />
+              <ButtonClick hide={false}/>
             </div>
           </div>
         </div>
