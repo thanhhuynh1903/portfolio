@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-export default function ObjectSVG() {
+export default function ObjectSVG({position}) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function ObjectSVG() {
 
   return (
     <div className="flex items-center justify-center min-h-screen px-8">
-      <div className="relative left-[110px]">
+      <div className={`relative`} style={{left:`${position}px`}}>
         <svg
           width="250"
           viewBox="0 0 300 1404"

@@ -37,7 +37,7 @@ export default function Aboutme() {
     <div ref={container}>
     <div className="relative flex justify-center align-center items-center bg-white py-30">
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40">
-        <ObjectSVG />
+        <ObjectSVG position={110}/>
       </div>
 
       <div className="w-9/12 relative z-10">

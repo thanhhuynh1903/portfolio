@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import Aboutme from "app/Aboutme/aboutme";
 import Project from "app/Project/project";
+import ViewingTeam from "app/ViewingTeam/ViewingTeam";
 gsap.registerPlugin(useGSAP);
 export default function page() {
   const container = useRef();
@@ -64,7 +65,7 @@ export default function page() {
       </div>
       <Aboutme />
       <Project />
-      <Aboutme />
+      <ViewingTeam />
     </div>
   );
 }
