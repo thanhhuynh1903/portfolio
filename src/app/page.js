@@ -7,11 +7,7 @@ import HomePage from './HomePage';
 
 export default function Home() {
    const [step, setStep] = useState(0);
-useEffect(() => {
-    if (step === 2) {
-      router.push('/test');
-    }
-  }, [step, router]);
+
   return (
     <main>
       {step === 0 && (

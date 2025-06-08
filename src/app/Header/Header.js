@@ -49,7 +49,7 @@ export default function Header() {
             <div className="w-3/6 text-white mb-15 opacity-60">
               <p className="text-base md:text-xl lg:text-lg">
                 Welcome to our world of endless imagination and boundless
-                creativity. Together, let's embark on a remarkable journey where
+                creativity. Together, let&apos;s embark on a remarkable journey where
                 dreams become tangible realities.
               </p>
             </div>

@@ -18,10 +18,12 @@ const RotatingPolyhedron2 = () => {
       clock; // Thêm đồng hồ để điều khiển hiệu ứng nổi
 
     const init = () => {
-      if (!containerRef.current) return;
+        const node = containerRef.current;
 
-      const containerWidth = containerRef.current.clientWidth;
-      const containerHeight = containerRef.current.clientHeight;
+      if (!node) return;
+
+      const containerWidth = node.clientWidth;
+      const containerHeight = node.clientHeight;
 
       windowHalfX = containerWidth / 2;
       windowHalfY = containerHeight / 2;
@@ -41,7 +43,7 @@ const RotatingPolyhedron2 = () => {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(containerWidth, containerHeight);
 
-      containerRef.current.appendChild(renderer.domElement);
+      node.appendChild(renderer.domElement);
 
       document.addEventListener("mousemove", onDocumentMouseMove, false);
 
@@ -114,10 +116,12 @@ const RotatingPolyhedron2 = () => {
     };
 
     const onWindowResize = () => {
-      if (!containerRef.current) return;
+        const node = containerRef.current;
 
-      const containerWidth = containerRef.current.clientWidth;
-      const containerHeight = containerRef.current.clientHeight;
+      if (!node) return;
+
+      const containerWidth = node.clientWidth;
+      const containerHeight = node.clientHeight;
 
       windowHalfX = containerWidth / 2;
       windowHalfY = containerHeight / 2;
@@ -133,10 +137,12 @@ const RotatingPolyhedron2 = () => {
     init();
 
     return () => {
+        const node = containerRef.current;
+
       window.removeEventListener("resize", onWindowResize);
       document.removeEventListener("mousemove", onDocumentMouseMove);
-      if (containerRef.current && renderer) {
-        containerRef.current.removeChild(renderer.domElement);
+      if (node && renderer) {
+        node.removeChild(renderer.domElement);
       }
     };
   }, []);

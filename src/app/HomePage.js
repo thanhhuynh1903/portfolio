@@ -12,7 +12,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ProjectShowcase from "app/ProjectShowcase/ProjectShowcase";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-export default function page() {
+export default function HomePage() {
   useEffect(() => {
     // Create the smooth scroller FIRST!
     if (!ScrollSmoother.get()) {

@@ -18,10 +18,12 @@ const RotatingPolyhedron = () => {
       clock; // Thêm đồng hồ để điều khiển hiệu ứng nổi
 
     const init = () => {
-      if (!containerRef.current) return;
+      const node = containerRef.current;
 
-      const containerWidth = containerRef.current.clientWidth;
-      const containerHeight = containerRef.current.clientHeight;
+      if (!node) return;
+
+      const containerWidth = node.clientWidth;
+      const containerHeight = node.clientHeight;
 
       windowHalfX = containerWidth / 2;
       windowHalfY = containerHeight / 2;
@@ -41,7 +43,7 @@ const RotatingPolyhedron = () => {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(containerWidth, containerHeight);
 
-      containerRef.current.appendChild(renderer.domElement);
+      node.appendChild(renderer.domElement);
 
       document.addEventListener("mousemove", onDocumentMouseMove, false);
 
@@ -55,24 +57,24 @@ const RotatingPolyhedron = () => {
       const polyhedronProps = [
         { size: 14, pos: [20, 10, 0], floatSpeed: 0.5, floatAmplitude: 0.5 }, // Khối lớn
         { size: 7, pos: [-12, 12, 0], floatSpeed: 0.7, floatAmplitude: 0.3 }, // Khối trung
-        { size: 3, pos: [2, -10, 0], floatSpeed: 1.0, floatAmplitude: 0.7 }   // Khối nhỏ
+        { size: 3, pos: [2, -10, 0], floatSpeed: 1.0, floatAmplitude: 0.7 }, // Khối nhỏ
       ];
 
       polyhedronProps.forEach((props) => {
         const geometry = new THREE.IcosahedronGeometry(props.size, 1);
         const wireframe = new THREE.WireframeGeometry(geometry);
         const lines = new THREE.LineSegments(wireframe, material);
-        
+
         // Thiết lập vị trí ban đầu
         lines.position.set(...props.pos);
-        
+
         // Lưu trữ thuộc tính nổi và vị trí gốc
         lines.userData = {
           originalY: props.pos[1],
           floatSpeed: props.floatSpeed,
-          floatAmplitude: props.floatAmplitude
+          floatAmplitude: props.floatAmplitude,
         };
-        
+
         scene.add(lines);
         polyhedrons.push(lines);
       });
@@ -99,7 +101,8 @@ const RotatingPolyhedron = () => {
 
           // Hiệu ứng nổi lên/xuống
           const { originalY, floatSpeed, floatAmplitude } = polyhedron.userData;
-          polyhedron.position.y = originalY + Math.sin(elapsedTime * floatSpeed) * floatAmplitude;
+          polyhedron.position.y =
+            originalY + Math.sin(elapsedTime * floatSpeed) * floatAmplitude;
         });
 
         renderer.render(scene, camera);
@@ -114,10 +117,12 @@ const RotatingPolyhedron = () => {
     };
 
     const onWindowResize = () => {
-      if (!containerRef.current) return;
+      const node = containerRef.current;
 
-      const containerWidth = containerRef.current.clientWidth;
-      const containerHeight = containerRef.current.clientHeight;
+      if (!node) return;
+
+      const containerWidth = node.clientWidth;
+      const containerHeight = node.clientHeight;
 
       windowHalfX = containerWidth / 2;
       windowHalfY = containerHeight / 2;
@@ -133,10 +138,11 @@ const RotatingPolyhedron = () => {
     init();
 
     return () => {
+      const node = containerRef.current;
       window.removeEventListener("resize", onWindowResize);
       document.removeEventListener("mousemove", onDocumentMouseMove);
-      if (containerRef.current && renderer) {
-        containerRef.current.removeChild(renderer.domElement);
+      if (node && renderer) {
+        node.removeChild(renderer.domElement);
       }
     };
   }, []);

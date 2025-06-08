@@ -29,8 +29,10 @@ export default function BlobCursor({
   const blobsRef = useRef([]);
 
   const updateOffset = useCallback(() => {
-    if (!containerRef.current) return { left: 0, top: 0 };
-    const rect = containerRef.current.getBoundingClientRect();
+    const node = containerRef.current;
+
+    if (!node) return { left: 0, top: 0 };
+    const rect = node.getBoundingClientRect();
     return { left: rect.left, top: rect.top };
   }, []);
 

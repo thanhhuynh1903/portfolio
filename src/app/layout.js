@@ -17,21 +17,16 @@ export const metadata = {
   title: "Rotating Polyhedron",
   description: "3D wireframe polyhedron with rotational animation",
 };
+
 export default function RootLayout({ children }) {
   return (
-    <html className="scroll-smooth" lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-   
+        <ScrollIndicator />
         {children}
-  
+        <BackToTop />
       </body>
     </html>
   );
