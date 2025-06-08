@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { gsap } from "gsap";
 gsap.registerPlugin(useGSAP);
-export default function Project() {
+export default function Tool() {
     const container = useRef();
     useGSAP(
         () => {

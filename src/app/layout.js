@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import ScrollIndicator from "@/components/ScrollIndicator";
+import BackToTop from "@/components/BackToTop";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -11,15 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata = {
   title: "Rotating Polyhedron",
   description: "3D wireframe polyhedron with rotational animation",
-}
+};
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-       <head>
+    <html className="scroll-smooth" lang="en">
+      <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
           rel="stylesheet"
@@ -28,7 +29,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+   
         {children}
+  
       </body>
     </html>
   );

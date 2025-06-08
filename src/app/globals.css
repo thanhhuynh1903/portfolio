@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: "Outfit", sans-serif;
 }
+.section {
+  min-height: auto;
+  scroll-snap-align: start;
+}
