@@ -138,9 +138,9 @@ export default function ViewingTeam() {
                 style={{ alignItems: "center", alignContent: "center" }}
               >
                 <div className="text-lg">
-                  <h2>
+                  <h2 className="font-medium">
                     Front-end Developer Intern{" "}
-                    <span style={{ fontWeight: "600" }}>
+                    <span className="font-light">
                       (Jan 2024 – Apr 2024)
                     </span>
                   </h2>
