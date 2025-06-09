@@ -50,12 +50,12 @@ export default function Tool() {
                     <RoundedImageBox />
                   </div>
                   <h1 className="font-semibold text-8xl mb-7">
-                    Unique <span className="font-thin">ideas</span>{" "}
+                    Unique <span className="font-thin">Skills</span>{" "}
                   </h1>
                 </div>
                 <div className="font-semibold flex gap-2">
                   <h1 className="text-8xl">
-                    For your <span className="font-thin"> business. </span>{" "}
+                    For my <span className="font-thin"> Career. </span>{" "}
                   </h1>
                   <div className="text-black content-end ml-5">
                     <ButtonClick hide={true} />

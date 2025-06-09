@@ -68,20 +68,20 @@ export default function Box() {
 
   const post = [
     {
-      name: "Brand and Indentify Design",
-      desc: "Our creative agency is a team of professionals focused on helping your brand grow.",
+      name: "Techinical Skills",
+      desc: "Javascript, Typescript, ReactJS, NextJS ,React Native,MongoDB, MS SQL Server.",
     },
     {
-      name: "Website Design and and Development",
-      desc: "Our creative agency is a team of professionals focused on helping your brand grow.",
+      name: "Tools use for development",
+      desc: "Github, VSCode, Android Studio, Figma, Postman, Motif, ClickUp, Trello, Jira, DBeaver, Genymotion, Expo Go, Netlify, Vercel.",
     },
     {
-      name: "Advertising and Marketing Campaigns",
-      desc: "Our creative agency is a team of professionals focused on helping your brand grow.",
+      name: "Language Skills",
+      desc: "English - Intermediate , Vietnamese - Native.",
     },
     {
-      name: "Advertising and Marketing Campaigns",
-      desc: "Our creative agency is a team of professionals focused on helping your brand grow.",
+      name: "Other Skills",
+      desc: "Project Management, Problem Solving, Teamwork, Critical Thinking, Research documents,Testing.",
       lastchild: true,
     },
   ];
@@ -92,7 +92,7 @@ export default function Box() {
         {post?.map((item, i) => (
           <div
             key={i}
-            className={`box border h-[410px] w-[300px] border-2 border-[rgba(255, 255, 255, 0.1)] border-b-0 ${
+            className={`box border h-[360px] w-[300px] border-2 border-[rgba(255, 255, 255, 0.1)] border-b-0 ${
               !item?.lastchild ? `border-r-0` : ""
             } cursor-pointer`}
           >

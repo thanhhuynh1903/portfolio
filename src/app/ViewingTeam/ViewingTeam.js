@@ -110,7 +110,7 @@ export default function ViewingTeam() {
 
   return (
     <div ref={container}>
-      <div className="relative flex justify-center items-center bg-white py-30">
+      <div className="relative flex justify-center items-center bg-white pt-30 pb-15">
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40">
           <ObjectSVG position={60} />
         </div>
@@ -118,25 +118,54 @@ export default function ViewingTeam() {
         <div className="w-9/12 relative z-10">
           <div className="flex justify-between">
             <div className="w-[41%]">
-              <h1 className="appear text-7xl tracking-normal leading-tight mb-16">
+              <h1 className="appear text-7xl tracking-normal leading-tight mb-8">
                 <span className="font-[500]">
                   Work <br /> Experience
                 </span>
               </h1>
+              <div
+                className="appear flex"
+                style={{ alignItems: "center", alignContent: "center" }}
+              >
+                <div className="text-lg">
+                  <h2 style={{ fontWeight: 600 }}>
+                    Internship Experience — FPT Software 💼
+                  </h2>
+                </div>
+              </div>
+              <div
+                className="appear mb-16 flex"
+                style={{ alignItems: "center", alignContent: "center" }}
+              >
+                <div className="text-lg">
+                  <h2>
+                    Front-end Developer Intern{" "}
+                    <span style={{ fontWeight: "600" }}>
+                      (Jan 2024 – Apr 2024)
+                    </span>
+                  </h2>
+                </div>
+              </div>
               <div className="mb-16">
                 <p className="appear mb-10 text-base text-gray-500 font-light leading-relaxed">
-                  At our design studio, we are a collective of talented
-                  individuals ignited by our unwavering passion for transforming
-                  ideas into reality. With a harmonious blend of diverse
-                  backgrounds and a vast array of skill sets, we join forces to
-                  create compelling solutions for our esteemed clients.
+                  During my internship at FPT Software, I had the opportunity to
+                  work on real-world projects where I was Enhanced the UI/UX of
+                  React.js applications by fixing issues reported by users and
+                  testers, helping improve user satisfaction and usability.
+                  Participated in Agile ceremonies such as daily stand-ups and
+                  sprint planning, learning how to work effectively in a team
+                  and deliver work incrementally. Collaborated closely with QA
+                  engineers and developers to ensure cross-browser compatibility
+                  and UI responsiveness, strengthening my understanding of
+                  front-end performance best practices.
                 </p>
                 <p className="appear mb-10 text-base text-gray-500 font-light leading-relaxed">
-                  Collaboration is at the heart of what we do. Our team thrives
-                  on the synergy that arises when unique perspectives converge,
-                  fostering an environment of boundless creativity. By
-                  harnessing our collective expertise, we produce extraordinary
-                  results that consistently surpass expectations.{" "}
+                  Improved my problem-solving and debugging
+                  skills through daily issue resolution. Understood the
+                  importance of collaboration in Agile development environments.
+                  Developed a stronger eye for UI/UX details and user-first
+                  design decisions. Learned to manage tasks independently while
+                  staying aligned with the team&apos;s goals .{" "}
                 </p>
               </div>
               <div className="appear mb-16 flex items-center">
