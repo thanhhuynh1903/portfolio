@@ -104,6 +104,22 @@ export default function ViewingTeam() {
           });
         });
       });
+
+      gsap.from(
+              ".paragraph-appear",
+              {
+                y: 30,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.5,
+                scrollTrigger: {
+                  trigger: container.current,
+                  start: "top 69%",
+                  toggleActions: "play none none none",
+                },
+              },
+              "-=0.4"
+            );
     },
     { scope: container }
   );
@@ -124,7 +140,7 @@ export default function ViewingTeam() {
                 </span>
               </h1>
               <div
-                className="appear flex"
+                className="paragraph-appear flex"
                 style={{ alignItems: "center", alignContent: "center" }}
               >
                 <div className="text-lg">
@@ -134,7 +150,7 @@ export default function ViewingTeam() {
                 </div>
               </div>
               <div
-                className="appear mb-16 flex"
+                className="paragraph-appear mb-16 flex"
                 style={{ alignItems: "center", alignContent: "center" }}
               >
                 <div className="text-lg">
@@ -147,7 +163,7 @@ export default function ViewingTeam() {
                 </div>
               </div>
               <div className="mb-16">
-                <p className="appear mb-10 text-base text-gray-500 font-light leading-relaxed">
+                <p className="paragraph-appear mb-10 text-base text-gray-500 font-light leading-relaxed">
                   During my internship at FPT Software, I had the opportunity to
                   work on real-world projects where I was Enhanced the UI/UX of
                   React.js applications by fixing issues reported by users and
@@ -159,7 +175,7 @@ export default function ViewingTeam() {
                   and UI responsiveness, strengthening my understanding of
                   front-end performance best practices.
                 </p>
-                <p className="appear mb-10 text-base text-gray-500 font-light leading-relaxed">
+                <p className="paragraph-appear mb-10 text-base text-gray-500 font-light leading-relaxed">
                   Improved my problem-solving and debugging
                   skills through daily issue resolution. Understood the
                   importance of collaboration in Agile development environments.
@@ -168,7 +184,7 @@ export default function ViewingTeam() {
                   staying aligned with the team&apos;s goals .{" "}
                 </p>
               </div>
-              <div className="appear mb-16 flex items-center">
+              <div className="paragraph-appear mb-16 flex items-center">
                 <div className="flex bg-[#ff9800] p-2 rounded-full tracking-wider cursor-pointer hover:bg-[#e68a00] transition-colors">
                   <div className="flex justify-between items-center">
                     <h1
