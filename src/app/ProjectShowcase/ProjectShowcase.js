@@ -35,7 +35,7 @@ const projects = [
     ],
     liveUrl: "https://admin-plantcarec1903.vercel.app",
     githubUrl: "https://github.com/thanhhuynh1903/admin-plantcare",
-    slug: "admin-dashboard",
+    slug: "https://admin-plantcarec1903.vercel.app",
   },
   {
     id: 2,
@@ -58,7 +58,7 @@ const projects = [
     ],
     liveUrl: "https://github.com/thanhhuynh1903/srcoach/releases/tag/v0.0.1",
     githubUrl: "https://github.com/thanhhuynh1903/srcoach",
-    slug: "fitness-tracker",
+    slug: "https://github.com/thanhhuynh1903/srcoach/releases/tag/v0.0.1",
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ const projects = [
     ],
     liveUrl: "https://biteologyweb.netlify.app/",
     githubUrl: "https://github.com/thanhhuynh1903/biteology",
-    slug: "Food-technology",
+    slug: "https://biteologyweb.netlify.app/",
   },
   {
     id: 4,
@@ -102,7 +102,7 @@ const projects = [
     ],
     liveUrl: "https://bestbeauty.netlify.app/",
     githubUrl: "https://github.com/thanhhuynh1903/cosmetic-Shop",
-    slug: "E-commerce",
+    slug: "https://bestbeauty.netlify.app/",
   },
 ];
 
@@ -270,7 +270,8 @@ export default function ProjectShowcase() {
                   </div>
 
                   <Link
-                    href={`/projects/${project.slug}`}
+                    href={`${project.slug}`}
+                    target="_blank"
                     className="flex items-center gap-2 text-black hover:text-[#ff9800] transition-colors font-medium"
                   >
                     <span className="text-sm tracking-wider uppercase">
@@ -287,10 +288,11 @@ export default function ProjectShowcase() {
         {/* View All Projects Button */}
         <div className="text-center mt-12">
           <Link
-            href="/projects"
+            href="https://github.com/thanhhuynh1903"
+            target="_blank"
             className="inline-flex items-center gap-3 bg-[#ff9800] hover:bg-[#e68a00] text-white px-8 py-4 rounded-full font-medium transition-colors"
           >
-            <span className="tracking-wider uppercase">View All Projects</span>
+            <span className="tracking-wider uppercase">Visit My GitHub</span>
             <ArrowRight className="h-5 w-5" />
           </Link>
         </div>

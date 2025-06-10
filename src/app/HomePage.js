@@ -13,6 +13,7 @@ import ProjectShowcase from "app/ProjectShowcase/ProjectShowcase";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function HomePage() {
+  
   useEffect(() => {
     // Create the smooth scroller FIRST!
     if (!ScrollSmoother.get()) {
@@ -22,7 +23,7 @@ export default function HomePage() {
         normalizeScroll: true,
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        span:1,
+        span: 1,
       });
     }
     return () => {
@@ -33,16 +34,30 @@ export default function HomePage() {
   }, []);
 
   return (
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <div className="section"><Header /></div>
-      <div className="section"><Aboutme /></div>
-      <div className="section"><Tool /></div>
-      <div className="section"><ViewingTeam /></div>
-      <div className="section"><ProjectShowcase /></div>
-      <div className="section"><Contact /></div>
-      <div className="section"><Footer /></div>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <div className="section">
+          <Header />
+        </div>
+        <div id="aboutme" className="section">
+          <Aboutme />
+        </div>
+        <div id="skills" className="section">
+          <Tool />
+        </div>
+        <div id="workexperience" className="section">
+          <ViewingTeam />
+        </div>
+        <div id="projects" className="section">
+          <ProjectShowcase />
+        </div>
+        <div className="section">
+          <Contact />
+        </div>
+        <div className="section">
+          <Footer />
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
 }

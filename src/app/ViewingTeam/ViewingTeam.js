@@ -170,10 +170,7 @@ export default function ViewingTeam() {
                   testers, helping improve user satisfaction and usability.
                   Participated in Agile ceremonies such as daily stand-ups and
                   sprint planning, learning how to work effectively in a team
-                  and deliver work incrementally. Collaborated closely with QA
-                  engineers and developers to ensure cross-browser compatibility
-                  and UI responsiveness, strengthening my understanding of
-                  front-end performance best practices.
+                  and deliver work incrementally
                 </p>
                 <p className="paragraph-appear mb-10 text-base text-gray-500 font-light leading-relaxed">
                   Improved my problem-solving and debugging
@@ -183,21 +180,6 @@ export default function ViewingTeam() {
                   design decisions. Learned to manage tasks independently while
                   staying aligned with the team&apos;s goals .{" "}
                 </p>
-              </div>
-              <div className="paragraph-appear mb-16 flex items-center">
-                <div className="flex bg-[#ff9800] p-2 rounded-full tracking-wider cursor-pointer hover:bg-[#e68a00] transition-colors">
-                  <div className="flex justify-between items-center">
-                    <h1
-                      className="uppercase text-[13px] ml-7 font-[600]"
-                      style={{ letterSpacing: "4px" }}
-                    >
-                      Read More
-                    </h1>
-                    <div className="ml-7">
-                      <ArrowCircleRightIcon sx={{ fontSize: 50 }} />
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 

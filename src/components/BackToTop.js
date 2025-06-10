@@ -4,15 +4,16 @@ import { gsap } from "gsap"
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 import { ChevronRightRounded } from "@mui/icons-material"
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollToPlugin)
-}
+
 
 export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const toggleVisibility = () => {
+      if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollToPlugin)
+}
       if (window.scrollY > 300) {
         setIsVisible(true)
       } else {
