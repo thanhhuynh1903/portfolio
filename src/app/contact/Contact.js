@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "@mui/icons-material";
 import emailjs from "@emailjs/browser";
-import { ToastContainer,Bounce, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
@@ -234,11 +234,7 @@ export default function Contact() {
           </div>
         </form>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        transition={Bounce}
-      />
+      <ToastContainer />
     </section>
   );
 }
