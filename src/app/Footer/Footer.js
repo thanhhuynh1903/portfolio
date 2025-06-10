@@ -17,7 +17,7 @@ export default function Footer() {
     {
       name: "Facebook",
       icon: <FacebookIcon />,
-      link: "https://www.facebook.com/?locale=vi_VN",
+      link: "https://www.facebook.com/KaZuHT",
     },
     {
       name: "Instagram",
