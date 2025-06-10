@@ -4,14 +4,16 @@ import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "@mui/icons-material";
-
-
+import emailjs from "@emailjs/browser";
+import { ToastContainer,Bounce, toast } from "react-toastify";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const containerRef = useRef(null);
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
+    time: new Date().toLocaleTimeString(),
     email: "",
     message: "",
   });
@@ -19,7 +21,7 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    const node = containerRef.current
+    const node = containerRef.current;
     if (!node) return;
 
     // Animate form elements on load with ScrollTrigger
@@ -59,58 +61,58 @@ export default function Contact() {
 
     // Add focus animations for inputs
     const inputs = gsap.utils.toArray(".form-input");
-    inputs.forEach((input) => {
-      const inputElement = input;
-      const label = inputElement.previousElementSibling;
+    const handleFocus = (input) => {
+      const label = input.previousElementSibling;
+      gsap.to(label, {
+        y: -5,
+        scale: 0.9,
+        color: "#ff9800",
+        duration: 0.1,
+        ease: "power2.out",
+      });
+    };
 
-      inputElement.addEventListener("focus", () => {
+    const handleBlur = (input) => {
+      const label = input.previousElementSibling;
+      if (!input.value) {
         gsap.to(label, {
-          y: -5,
-          scale: 0.9,
-          color: "#ff9800",
-          duration: 0.1,
+          y: 0,
+          scale: 1,
+          color: "#9ca3af",
+          duration: 0.3,
           ease: "power2.out",
         });
-      });
+      }
+    };
 
-      inputElement.addEventListener("blur", () => {
-        if (!inputElement.value) {
-          gsap.to(label, {
-            y: 0,
-            scale: 1,
-            color: "#9ca3af",
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        }
-      });
+    inputs.forEach((input) => {
+      input.addEventListener("focus", () => handleFocus(input));
+      input.addEventListener("blur", () => handleBlur(input));
     });
 
     // Back to top functionality
     const backToTopBtn = document.querySelector(".back-to-top");
     if (backToTopBtn) {
       backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
 
     return () => {
       inputs.forEach((input) => {
-        const inputElement = input;
-        inputElement.removeEventListener("focus", () => {});
-        inputElement.removeEventListener("blur", () => {});
+        input.removeEventListener("focus", () => handleFocus(input));
+        input.removeEventListener("blur", () => handleBlur(input));
       });
       if (backToTopBtn) {
         backToTopBtn.removeEventListener("click", () => {});
       }
-      // Kill ScrollTrigger on unmount
       tl.scrollTrigger && tl.scrollTrigger.kill();
     };
   }, []);
 
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_USER_ID);
+  }, []);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -123,17 +125,35 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+    // Gửi email với EmailJS
+    try {
+      const response = await emailjs.send(
+        `${process.env.NEXT_PUBLIC_SERVICE_ID}`,
+        `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`,
+        {
+          ...formData,
+        },
+        `${process.env.NEXT_PUBLIC_USER_ID}`
+      );
+      if (response.status === 200) {
+        toast.success("Email sent successfully!");
+      }
+      console.log("Email sent successfully:", formData);
+      
       setFormData({ name: "", email: "", message: "" });
-    }, 3000);
+      setIsSubmitted(true);
+
+      // Reset form sau 3 giây
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+
+      console.error("Email send error:", error);
+      toast.error("Failed to send email. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,20 +161,18 @@ export default function Contact() {
       ref={containerRef}
       className="bg-white min-h-screen py-20 px-6 md:px-12 relative"
     >
-      {/* Main Content */}
       <div className="max-w-4xl mx-auto pt-16">
         <div className="contact-header text-center mb-16">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-            Let&apos;s <span className="font-light">Talk</span>
+            Let's <span className="font-light">Talk</span>
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-12">
-          {/* Name and Email Row */}
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="form-field relative">
               <label className="block text-gray-400 text-sm tracking-widest uppercase mb-4 transition-all duration-300">
-                What&apos;s Your Name
+                What's Your Name
               </label>
               <input
                 type="text"
@@ -181,7 +199,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Message Field */}
           <div className="form-field relative">
             <label className="block text-gray-400 text-sm tracking-widest uppercase mb-4 transition-all duration-300">
               More Description To Your Message
@@ -196,7 +213,6 @@ export default function Contact() {
             />
           </div>
 
-          {/* Footer */}
           <div className="form-footer flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pt-8">
             <p className="text-gray-500 text-sm">
               <span className="text-[#ff9800]">*</span> We promise not to
@@ -220,6 +236,19 @@ export default function Contact() {
           </div>
         </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </section>
   );
 }

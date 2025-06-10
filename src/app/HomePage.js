@@ -10,11 +10,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ProjectShowcase from "app/ProjectShowcase/ProjectShowcase";
+import { ToastContainer, Bounce } from "react-toastify";
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function HomePage() {
   useEffect(() => {
-      ScrollTrigger.refresh();
+    ScrollTrigger.refresh();
     // Create the smooth scroller FIRST!
     if (!ScrollSmoother.get()) {
       ScrollSmoother.create({
@@ -58,6 +60,19 @@ export default function HomePage() {
           <Footer />
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 }
