@@ -47,7 +47,7 @@ export default function Box() {
           });
           gsap.to(icons, {
             scale: 1.2,
-            x:10,
+            x: 10,
             opacity: 1,
             duration: 0.5,
             ease: "power3.out",
@@ -63,7 +63,7 @@ export default function Box() {
           gsap.to(icons, {
             scale: 1,
             opacity: 1,
-            x:0,
+            x: 0,
             duration: 0.5,
             ease: "power3.out",
             color: "#171717",
@@ -74,50 +74,54 @@ export default function Box() {
     { scope: container }
   );
 
-  const post = [
+  const posts = [
     {
       name: "Techinical Skills",
       desc: "Javascript, Typescript, ReactJS, NextJS ,React Native,MongoDB, MS SQL Server.",
       icon: [
-        <RiReactjsFill />,
-        <SiJavascript />,
-        <SiTypescript />,
-        <RiNextjsFill />,
-        <BiLogoMongodb />,
-        <TbFileTypeSql />,
-        <TbBrandReactNative />,
+        <RiReactjsFill key="react" />,
+        <SiJavascript key="js" />,
+        <SiTypescript key="ts" />,
+        <RiNextjsFill key="next" />,
+        <BiLogoMongodb key="mongo" />,
+        <TbFileTypeSql key="sql" />,
+        <TbBrandReactNative key="rn" />,
       ],
     },
     {
       name: "Tools use for development",
       desc: "Github, VSCode, Android Studio, Figma, Postman, Motif, ClickUp, Trello, Jira, DBeaver, Genymotion, Expo Go, Netlify, Vercel.",
       icon: [
-        <GitHub />,
-        <VscVscode />,
-        <FaAndroid />,
-        <FaFigma />,
-        <SiPostman />,
-        <SiClickup />,
-        <FaTrello />,
-        <FaJira />,
-        <SiDbeaver />,
-        <SiNetlify />,
-        <RiVercelLine />,
+        <GitHub key="github" />,
+        <VscVscode key="vscode" />,
+        <FaAndroid key="android" />,
+        <FaFigma key="figma" />,
+        <SiPostman key="postman" />,
+        <SiClickup key="clickup" />,
+        <FaTrello key="trello" />,
+        <FaJira key="jira" />,
+        <SiDbeaver key="dbeaver" />,
+        <SiNetlify key="netlify" />,
+        <RiVercelLine key="vercel" />,
       ],
     },
     {
       name: "Language Skills",
       desc: "English - Intermediate , Vietnamese - Native.",
       icon: [
-        <ReactCountryFlag countryCode="US" svg />,
-        <ReactCountryFlag countryCode="VN" svg/>,
+        <ReactCountryFlag countryCode="US" svg key="us" />,
+        <ReactCountryFlag countryCode="VN" svg key="vn" />,
       ],
     },
     {
       name: "Other Skills",
       desc: "Project Management, Problem Solving, Teamwork, Critical Thinking, Research documents,Testing.",
-      icon:[
-        <GiThink />,<GiArchiveResearch/>,<MdManageAccounts/>,<GrWorkshop/>],
+      icon: [
+        <GiThink key="think" />,
+        <GiArchiveResearch key="research" />,
+        <MdManageAccounts key="manage" />,
+        <GrWorkshop key="workshop" />,
+      ],
       lastchild: true,
     },
   ];
@@ -125,7 +129,7 @@ export default function Box() {
   return (
     <div ref={container}>
       <div className="flex flex-row">
-        {post?.map((item, i) => (
+        {posts?.map((item, i) => (
           <div
             key={i}
             className={`box border h-[360px] w-[300px] border-2 border-[rgba(255, 255, 255, 0.1)] border-b-0 ${
@@ -151,9 +155,9 @@ export default function Box() {
                   {item.desc}
                 </p>
                 <div className=" icon flex flex-wrap">
-                  {item?.icon?.map((item, i) => (
-                    <div key={i} className="mx-2 mt-2">
-                      {item}
+                  {item?.icon?.map((child, index) => (
+                    <div key={index} className="mx-2 mt-2">
+                      {child}
                     </div>
                   ))}
                 </div>
