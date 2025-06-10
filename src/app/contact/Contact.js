@@ -138,7 +138,6 @@ export default function Contact() {
       if (response.status === 200) {
         toast.success("Email sent successfully!");
       }
-      console.log("Email sent successfully:", formData);
       
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitted(true);
@@ -148,7 +147,6 @@ export default function Contact() {
         setIsSubmitted(false);
       }, 3000);
     } catch (error) {
-
       console.error("Email send error:", error);
       toast.error("Failed to send email. Please try again.");
     } finally {
