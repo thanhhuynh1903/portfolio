@@ -6,7 +6,7 @@ import { ArrowRight } from "@mui/icons-material";
 import Link from "next/link";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-
+import ButtonClick from "@/components/ButtonClick";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -116,16 +116,9 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="footer-item mb-8">
               <h2 className="text-4xl font-bold mb-8">ThanhDev.</h2>
-              <p className="text-gray-400 mb-4">Subscribe our newsletter:</p>
+              <p className="text-gray-400 mb-4">Contact with me now:</p>
               <div className="flex">
-                <input
-                  type="email"
-                  placeholder="ENTER OUR EMAIL"
-                  className="bg-[#1a1a1a] text-gray-300 px-4 py-3 rounded-l-full w-full focus:outline-none"
-                />
-                <button className="bg-[#ff9800] hover:bg-[#e68a00] transition-colors p-3 rounded-full -ml-6">
-                  <ArrowRight className="h-5 w-5 text-black" />
-                </button>
+                <ButtonClick hideContact={true}/>
               </div>
             </div>
 
