@@ -10,7 +10,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ProjectShowcase from "app/ProjectShowcase/ProjectShowcase";
-import { ToastContainer } from "react-toastify";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export default function HomePage() {
@@ -59,7 +58,6 @@ export default function HomePage() {
           <Footer />
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }

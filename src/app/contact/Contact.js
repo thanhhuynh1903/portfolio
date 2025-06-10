@@ -234,7 +234,7 @@ export default function Contact() {
           </div>
         </form>
       </div>
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
     </section>
   );
 }
