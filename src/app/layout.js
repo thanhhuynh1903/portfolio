@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Rotating Polyhedron",
-  description: "3D wireframe polyhedron with rotational animation",
+  title: "ThanhDev",
+  description: "This is ThanhDev's portfolio",
 };
 
 export default function RootLayout({ children }) {
