@@ -63,7 +63,7 @@ export default function ButtonClick({ hide }) {
             className="flex justify-between text-center cursor-pointer w-full md:w-auto"
             style={{ alignItems: "center" }}
           >
-            <h1 className=" hover:underline uppercase text-white text-[13px] text-center ml-7 font-[600]">
+            <h1 className=" hover:underline uppercase text-white text-[13px] text-center md:ml-7 font-[600]">
               Download CV (PDF)
             </h1>
             <div className="flex items-center justify-center ml-7 w-12 h-12 rounded-full bg-[#222]">
