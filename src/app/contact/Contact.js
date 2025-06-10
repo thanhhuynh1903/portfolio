@@ -164,7 +164,7 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto pt-16">
         <div className="contact-header text-center mb-16">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black">
-            Let's <span className="font-light">Talk</span>
+            Let&apos;s <span className="font-light">Talk</span>
           </h2>
         </div>
 
@@ -172,7 +172,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="form-field relative">
               <label className="block text-gray-400 text-sm tracking-widest uppercase mb-4 transition-all duration-300">
-                What's Your Name
+                What&apos;s Your Name
               </label>
               <input
                 type="text"
