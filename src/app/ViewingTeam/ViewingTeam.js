@@ -179,7 +179,7 @@ export default function ViewingTeam() {
               </div>
             </div>
 
-            <div className="w-full md:w-[55%] grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="w-full md:w-[44%] grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Column 1 */}
               <div>
                 {ImageLinks.slice(0, 2).map((image, index) => (
