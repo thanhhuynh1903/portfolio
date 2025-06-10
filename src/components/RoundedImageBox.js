@@ -7,7 +7,7 @@ export default function RoundedImageBox() {
     <div className="bg-black flex items-center">
       <div className="flex items-center">
         {/* Rounded pill-shaped image container */}
-        <div className="rounded-full overflow-hidden h-[80px] w-[250px]">
+        <div className="rounded-full overflow-hidden h-[50px] w-[120px] sm:h-[80px] sm:w-[250px] md:h-[110px] md:w-[280px]">
           <Image
             src="/picture2.jpeg"
             alt="People in conversation"

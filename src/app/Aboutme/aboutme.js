@@ -50,22 +50,22 @@ export default function Aboutme() {
 
   return (
     <div ref={container}>
-      <div className="relative flex justify-center align-center items-center bg-white py-30">
+      <div className="relative flex justify-center align-center items-center bg-white py-10 md:py-20">
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40">
           <ObjectSVG position={110} />
         </div>
 
-        <div className="w-9/12 relative z-10">
-          <div className="flex row justify-between">
-            <div className="appear w-[41%] content-center">
-              <h1 className="paragraph-appear text-7xl tracking-normal leading-tight mb-16">
+      <div className="w-full max-w-6xl relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
+          <div className="appear w-full md:w-[52%] content-center">
+              <h1 className="paragraph-appear text-4xl md:text-6xl lg:text-7xl tracking-normal leading-tight mb-10 md:mb-16 text-center md:text-left">
                 <span className="font-[500]">
                   Discover <br /> About
                 </span>
                 <span className="font-thin"> Myself</span>{" "}
               </h1>
-              <div className="paragraph-appear mb-16">
-                <p className="mb-10 text-base text-gray-500 font-light leading-relaxed">
+              <div className="paragraph-appear mb-10 md:mb-16">
+                <p className="mb-6 md:mb-10 text-base md:text-lg text-gray-500 font-light leading-relaxed px-5 md:px-0 md:text-left">
                   As a Front-end and Mobile Developer, I thrive on transforming
                   user-centric ideas into functional, engaging digital
                   experiences. With hands-on experience in ReactJS, React
@@ -73,7 +73,7 @@ export default function Aboutme() {
                   intuitive UIs that not only look great but perform flawlessly
                   across platforms.
                 </p>
-                <p className="mb-10 text-base text-gray-500 font-light leading-relaxed">
+                <p className="mb-6 md:mb-10 text-base md:text-lg text-gray-500 font-light leading-relaxed px-5 md:px-0 md:text-left">
                   Driven by curiosity and a passion for clean, efficient code,
                   I&apos;ve contributed to multiple real-world projects—from
                   health tech apps to e-commerce dashboards—each built with
@@ -84,17 +84,17 @@ export default function Aboutme() {
                 </p>
               </div>
               <div
-                className="paragraph-appear mb-16 flex"
+                className="paragraph-appear mb-10 md:mb-16 flex mx-5 md:mx-0"
                 style={{ alignItems: "center", alignContent: "center" }}
               >
-                <div className="mr-7">
+                <div className="mr-0 md:mr-7 mb-4 md:mb-0">
                   <Avatar
                     alt="Remy Sharp"
                     src="/face.png"
                     sx={{ width: 85, height: 85 }}
                   />
                 </div>
-                <div className="text-lg">
+                <div className="text-large ml-5 md:ml-0">
                   <h2 style={{ fontWeight: "600" }}>
                     Passionately Creating{" "}
                     <span className="font-thin">Design Wonders:</span>
@@ -108,7 +108,7 @@ export default function Aboutme() {
                 </div>
               </div>
             </div>
-            <div className="w-[38%]">
+            <div className="w-full md:w-[38%] px-5 md:p-0">
               <div className="w-full">
                 <Image
                   src="/picturemyself.png"

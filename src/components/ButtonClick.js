@@ -41,26 +41,26 @@ export default function ButtonClick({ hide }) {
     document.body.removeChild(link);
   };
   return (
-    <div className="flex gap-5">
-      <div className="flex bg-[#ff9800] p-2 rounded-full tracking-wider">
+    <div className="flex flex-col md:flex-row gap-4 md:gap-5 w-full items-start justify-start">
+      <div className="flex bg-[#ff9800] md:p-2 rounded-full tracking-wider md:w-auto justify-start">
         <button
           onClick={ScrollToSection("contact")}
           className="flex justify-between text-center cursor-pointer"
           style={{ alignItems: "center" }}
         >
-          <h1 className="uppercase text-[13px] text-center ml-7 font-[600]">
+          <h1 className="uppercase text-[10px] md:text-[13px] text-center ml-4 md:ml-7 font-[600]">
             Contact Me
           </h1>
-          <div className="ml-7">
+          <div className="ml-4 md:ml-7">
             <ArrowCircleRightIcon sx={{ fontSize: 50 }} />
           </div>
         </button>
       </div>
       {!hide && (
-        <div className="flex p-2 tracking-wider">
+        <div className="flex p-2 tracking-wider md:w-auto">
           <button
             onClick={handleDownload}
-            className="flex justify-between text-center cursor-pointer"
+            className="flex justify-between text-center cursor-pointer w-full md:w-auto"
             style={{ alignItems: "center" }}
           >
             <h1 className=" hover:underline uppercase text-white text-[13px] text-center ml-7 font-[600]">

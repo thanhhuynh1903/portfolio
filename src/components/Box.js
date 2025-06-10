@@ -122,19 +122,16 @@ export default function Box() {
         <MdManageAccounts key="manage" />,
         <GrWorkshop key="workshop" />,
       ],
-      lastchild: true,
     },
   ];
 
   return (
     <div ref={container}>
-      <div className="flex flex-row">
+      <div className="flex flex-col md:flex-row w-full items-center md:gap-0">
         {posts?.map((item, i) => (
           <div
             key={i}
-            className={`box border h-[360px] w-[300px] border-2 border-[rgba(255, 255, 255, 0.1)] border-b-0 ${
-              !item?.lastchild ? `border-r-0` : ""
-            } cursor-pointer`}
+            className={`box border h-[360px] w-[300px] border-2 border-[rgba(255, 255, 255, 0.1)] border-b-0 cursor-pointer`}
           >
             {/* Animated border */}
             <div

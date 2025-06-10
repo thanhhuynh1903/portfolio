@@ -42,19 +42,19 @@ export default function Tool() {
           <RotatingPolyhedron2 />
         </div>
         <div className="block">
-          <div className="relative pt-30 mb-[120px]" >
+          <div className="relative pt-16 md:pt-30 mb-16 md:mb-[120px]" >
             <div className="flex capitalize justify-center">
               <span className="font-thin text-white ">
                 <div className="font-semibold flex gap-2 justify-center">
                   <div className="text-black content-center mr-5">
                     <RoundedImageBox />
                   </div>
-                  <h1 className="font-semibold text-8xl mb-7">
+                  <h1 className="font-semibold text-3xl md:text-6xl lg:text-8xl md:mb-7 text-center">
                     Unique <span className="font-thin">Skills</span>{" "}
                   </h1>
                 </div>
-                <div className="font-semibold flex gap-2">
-                  <h1 className="text-8xl">
+                <div className="font-semibold flex md:gap-2 md:">
+                  <h1 className="text-3xl md:text-6xl lg:text-8xl content-center">
                     For my <span className="font-thin"> Career. </span>{" "}
                   </h1>
                   <div className="text-black content-end ml-5">

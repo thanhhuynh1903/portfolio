@@ -106,20 +106,20 @@ export default function ViewingTeam() {
       });
 
       gsap.from(
-              ".paragraph-appear",
-              {
-                y: 30,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.5,
-                scrollTrigger: {
-                  trigger: container.current,
-                  start: "top 69%",
-                  toggleActions: "play none none none",
-                },
-              },
-              "-=0.4"
-            );
+        ".paragraph-appear",
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top 69%",
+            toggleActions: "play none none none",
+          },
+        },
+        "-=0.4"
+      );
     },
     { scope: container }
   );
@@ -131,23 +131,21 @@ export default function ViewingTeam() {
           <ObjectSVG position={60} />
         </div>
 
-        <div className="w-9/12 relative z-10">
-          <div className="flex justify-between">
-            <div className="w-[41%]">
-              <h1 className="appear text-7xl tracking-normal leading-tight mb-8">
-                <span className="font-[500]">
-                  Work <br /> Experience
-                </span>
-              </h1>
+        <div className="w-full max-w-6xl relative z-10 px-2 md:px-0">
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            <div className="w-full md:w-[41%]">
+              <div className="mb-8">
+              <span className="appear text-5xl md:text-7xl tracking-normal leading-tight font-medium">
+                Work <br /> Experience
+              </span>
+              </div>
               <div
                 className="paragraph-appear flex"
                 style={{ alignItems: "center", alignContent: "center" }}
               >
-                <div className="text-lg">
-                  <h2 style={{ fontWeight: 600 }}>
-                    Internship Experience — FPT Software 💼
-                  </h2>
-                </div>
+                <h2 className="text-lg font-semibold">
+                  Internship Experience — FPT Software 💼
+                </h2>
               </div>
               <div
                 className="paragraph-appear mb-16 flex"
@@ -156,9 +154,7 @@ export default function ViewingTeam() {
                 <div className="text-lg">
                   <h2 className="font-medium">
                     Front-end Developer Intern{" "}
-                    <span className="font-light">
-                      (Jan 2024 – Apr 2024)
-                    </span>
+                    <span className="font-light">(Jan 2024 – Apr 2024)</span>
                   </h2>
                 </div>
               </div>
@@ -173,17 +169,17 @@ export default function ViewingTeam() {
                   and deliver work incrementally
                 </p>
                 <p className="paragraph-appear mb-10 text-base text-gray-500 font-light leading-relaxed">
-                  Improved my problem-solving and debugging
-                  skills through daily issue resolution. Understood the
-                  importance of collaboration in Agile development environments.
-                  Developed a stronger eye for UI/UX details and user-first
-                  design decisions. Learned to manage tasks independently while
-                  staying aligned with the team&apos;s goals .{" "}
+                  Improved my problem-solving and debugging skills through daily
+                  issue resolution. Understood the importance of collaboration
+                  in Agile development environments. Developed a stronger eye
+                  for UI/UX details and user-first design decisions. Learned to
+                  manage tasks independently while staying aligned with the
+                  team&apos;s goals .{" "}
                 </p>
               </div>
             </div>
 
-            <div className="w-[45%] grid grid-cols-2 gap-6">
+            <div className="w-full md:w-[55%] grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Column 1 */}
               <div>
                 {ImageLinks.slice(0, 2).map((image, index) => (
@@ -211,9 +207,30 @@ export default function ViewingTeam() {
                           ART DIRECTOR
                         </span>
                         <div className="flex gap-4 text-white text-2xl mt-2 justify-center w-full">
-                          <FacebookIcon className="hover:text-[#ff9800] transition-colors" />
-                          <LanguageIcon className="hover:text-[#ff9800] transition-colors" />
-                          <LinkedInIcon className="hover:text-[#ff9800] transition-colors" />
+                          <a
+                            href="https://www.facebook.com/fptsoftware.official"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                          >
+                            <FacebookIcon className="hover:text-[#ff9800] transition-colors" />
+                          </a>
+                          <a
+                            href="https://fptsoftware.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Website"
+                          >
+                            <LanguageIcon className="hover:text-[#ff9800] transition-colors" />
+                          </a>
+                          <a
+                            href="https://www.linkedin.com/company/fpt-software/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                          >
+                            <LinkedInIcon className="hover:text-[#ff9800] transition-colors" />
+                          </a>
                         </div>
                       </div>
                       <div
@@ -256,9 +273,30 @@ export default function ViewingTeam() {
                           ART DIRECTOR
                         </span>
                         <div className="flex gap-4 text-white text-2xl mt-2 justify-center w-full">
-                          <FacebookIcon className="hover:text-[#ff9800] transition-colors" />
-                          <LanguageIcon className="hover:text-[#ff9800] transition-colors" />
-                          <LinkedInIcon className="hover:text-[#ff9800] transition-colors" />
+                          <a
+                            href="https://www.facebook.com/fptsoftware.official"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                          >
+                            <FacebookIcon className="hover:text-[#ff9800] transition-colors" />
+                          </a>
+                          <a
+                            href="https://fptsoftware.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Website"
+                          >
+                            <LanguageIcon className="hover:text-[#ff9800] transition-colors" />
+                          </a>
+                          <a
+                            href="https://www.linkedin.com/company/fpt-software/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                          >
+                            <LinkedInIcon className="hover:text-[#ff9800] transition-colors" />
+                          </a>
                         </div>
                       </div>
                       <div
