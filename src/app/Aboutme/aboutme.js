@@ -90,7 +90,7 @@ export default function Aboutme() {
                 <div className="mr-0 md:mr-7 mb-4 md:mb-0">
                   <Avatar
                     alt="Remy Sharp"
-                    src="/face.png"
+                    src="/facepic.png"
                     sx={{ width: 85, height: 85 }}
                   />
                 </div>
