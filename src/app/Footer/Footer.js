@@ -116,9 +116,9 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="footer-item mb-8">
               <h2 className="text-4xl font-bold mb-8">ThanhDev.</h2>
-              <p className="text-gray-400 mb-4">Contact with me now:</p>
+              <p className="text-gray-400 mb-4">Get my cv now:</p>
               <div className="flex">
-                <ButtonClick hideContact={true}/>
+                <ButtonClick hideContact={true} />
               </div>
             </div>
 
@@ -155,6 +155,22 @@ export default function Footer() {
                 City, Vietnam.
                 <br />
                 VN +84 935 664 263
+                <br />
+                Email:{" "}
+                <a
+                  href="mailto:thanhhuynh190303@gmail.com"
+                  className="underline"
+                >
+                  thanhhuynh190303@gmail.com
+                </a>
+                <br />
+                Alternate:
+                <a
+                  href="mailto:thanhgaming1234@gmail.com"
+                  className="underline pl-1"
+                >
+                  thanhgaming1234@gmail.com
+                </a>
               </p>
             </div>
           </div>
