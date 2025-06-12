@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useRef } from "react";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ScrollSmoother from "gsap/ScrollSmoother";
-
+import gsap from "gsap";
 export default function ButtonClick({ hide, hideContact }) {
+  const contactContainerRef = useRef(null);
+  const contactArrowRef = useRef(null);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (!window.ScrollSmoother) {
@@ -15,6 +18,53 @@ export default function ButtonClick({ hide, hideContact }) {
       ) {
         window.smootherInstance = ScrollSmoother.get();
       }
+    }
+    if (contactContainerRef.current && contactArrowRef.current) {
+      const ctx = gsap.context(() => {
+        // Hover animation
+        contactContainerRef.current.addEventListener("mouseenter", () => {
+          gsap.to(contactContainerRef.current, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+          gsap.to(contactArrowRef.current, {
+            x: 8,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        // Mouse leave animation
+        contactContainerRef.current.addEventListener("mouseleave", () => {
+          gsap.to(contactContainerRef.current, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+          gsap.to(contactArrowRef.current, {
+            x: 0,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        // Click animation
+        contactContainerRef.current.addEventListener("click", () => {
+          gsap
+            .timeline()
+            .to(contactContainerRef.current, {
+              scale: 0.95,
+              duration: 0.1,
+            })
+            .to(contactContainerRef.current, {
+              scale: 1.05,
+              duration: 0.2,
+            });
+        });
+      });
+
+      return () => ctx.revert();
     }
   }, []);
 
@@ -43,7 +93,10 @@ export default function ButtonClick({ hide, hideContact }) {
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-5 w-full items-start justify-start">
       {!hideContact && (
-        <div className="flex bg-[#ff9800] md:p-2 rounded-full tracking-wider md:w-auto justify-start">
+        <div
+          ref={contactContainerRef}
+          className="flex bg-[#ff9800] md:p-2 rounded-full tracking-wider md:w-auto justify-start"
+        >
           <button
             onClick={ScrollToSection("contact")}
             className="flex justify-between text-center cursor-pointer"
@@ -52,7 +105,10 @@ export default function ButtonClick({ hide, hideContact }) {
             <h1 className="uppercase text-[10px] md:text-[13px] text-center ml-4 md:ml-7 font-[600]">
               Contact Me
             </h1>
-            <div className="ml-4 md:ml-7">
+            <div
+              ref={contactArrowRef}
+              className="ml-4 md:ml-7 transition-transform"
+            >
               <ArrowCircleRightIcon sx={{ fontSize: 50 }} />
             </div>
           </button>

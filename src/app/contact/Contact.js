@@ -6,8 +6,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "@mui/icons-material";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
-
+const socialitem = [
+  {
+    name: "Facebook",
+    icon: <FacebookIcon />,
+    link: "https://www.facebook.com/KaZuHT",
+  },
+  {
+    name: "Instagram",
+    icon: <InstagramIcon />,
+    link: "https://www.instagram.com/thanh_huynh1903/",
+  },
+  {
+    name: "LinkedIn",
+    icon: <LinkedInIcon />,
+    link: "https://www.linkedin.com/in/thanh-hu%E1%BB%B3nh-329778367/",
+  },
+];
 export default function Contact() {
   const containerRef = useRef(null);
   const formRef = useRef(null);
@@ -138,7 +158,7 @@ export default function Contact() {
       if (response.status === 200) {
         toast.success("Email sent successfully!");
       }
-      
+
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitted(true);
 
@@ -212,10 +232,24 @@ export default function Contact() {
           </div>
 
           <div className="form-footer flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pt-8">
-            <p className="text-gray-500 text-sm">
-              <span className="text-[#ff9800]">*</span> We promise not to
-              disclose your personal information to third parties.
-            </p>
+            <div className="text-gray-500 text-sm">
+              <p>
+                <span className="text-[#ff9800]">*</span> You can contact me
+                with through these social media.
+              </p>
+              <div className="form-footer flex space-x-4 mb-8">
+                {socialitem.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={`${item.link}`}
+                    target="_blank"
+                    className="hover:text-[#ff9800] transition-colors"
+                  >
+                    {item.icon}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <button
               type="submit"
