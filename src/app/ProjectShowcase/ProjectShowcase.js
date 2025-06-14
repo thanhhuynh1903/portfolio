@@ -211,8 +211,11 @@ export default function ProjectShowcase() {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="project-card group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div
+              key={project.id}
+              className="project-card group h-full flex flex-col"
+            >
+              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image || "/placeholder.svg"}
@@ -249,7 +252,7 @@ export default function ProjectShowcase() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="mb-3">
                     <span className="text-[#ff9800] text-sm font-medium tracking-wider uppercase">
                       {project.category}
@@ -260,7 +263,7 @@ export default function ProjectShowcase() {
                     {project.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
                     {project.description}
                   </p>
 
@@ -275,16 +278,18 @@ export default function ProjectShowcase() {
                     ))}
                   </div>
 
-                  <Link
-                    href={`${project.slug}`}
-                    target="_blank"
-                    className="flex items-center gap-2 text-black hover:text-[#ff9800] transition-colors font-medium"
-                  >
-                    <span className="text-sm tracking-wider uppercase">
-                      VIEW PROJECT
-                    </span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <div className="mt-auto">
+                    <Link
+                      href={`${project.slug}`}
+                      target="_blank"
+                      className="flex items-center gap-2 text-black hover:text-[#ff9800] transition-colors font-medium"
+                    >
+                      <span className="text-sm tracking-wider uppercase">
+                        VIEW PROJECT
+                      </span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
