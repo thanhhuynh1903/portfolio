@@ -32,7 +32,7 @@ export default function Introduction({ onFinish }) {
               if (onFinish) onFinish();
             },
           });
-        }, 700);
+        }, 600);
       });
     },
     { scope: container }

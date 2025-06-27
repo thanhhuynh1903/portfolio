@@ -28,7 +28,7 @@ export default function AfterIntroduction({ onFinish }) {
         .to(".orange-box", {
           x: 0,
           width: "240px",
-          duration: 0.8,
+          duration: 0.4,
           ease: "elastic.out(1,5)",
           delay: 0.1,
         })
@@ -52,7 +52,7 @@ export default function AfterIntroduction({ onFinish }) {
         )
         .to(".orange-box", {
           width: "0px",
-          duration: 0.6,
+          duration: 0.5,
           ease: "power2.inOut",
         })
         .to(
@@ -60,10 +60,10 @@ export default function AfterIntroduction({ onFinish }) {
           {
             opacity: 0,
             y: -30,
-            duration: 0.6,
+            duration: 0.5,
             ease: "back.in",
           },
-          "+=0.5" // wait 0.5s after orange-box shrinks
+          "+=0.4" // wait 0.5s after orange-box shrinks
         )
         .to(".disappear", {
           duration: 0.5,
